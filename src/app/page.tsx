@@ -1,11 +1,18 @@
 import Image from 'next/image'
 import styles from './page.module.css'
 import Todos from '@/components/Todos'
+import Todo from '@/models/todo';
 
 export default function Home() {
+
+const todos = [
+  new Todo('Learn React'),
+  new Todo('Learn Next.js'),
+]
+
   return (
     <main className={styles.main}>
-      <Todos items ={['to do 1', 'to do 2', 'to do 3', 'to do 4']}/>
+      <Todos items ={todos}/>
     </main>
   )
 }
