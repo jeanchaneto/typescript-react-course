@@ -1,19 +1,21 @@
+"use client"
 import React, { useRef } from 'react'
+import styles from './NewTodo.module.css'
 
-const NewTodo = () => {
+const NewTodo: React.FC<{onAddTodo: (text: string) => void}> = (props) => {
     const todoTextInputRef = useRef<HTMLInputElement>(null);
 
 
 const submitHandler = (event: React.FormEvent) => {
     event.preventDefault();
-    const enteredtext = todoTextInputRef.current!.value;
+    const enteredText = todoTextInputRef.current!.value;
 
-    if (enteredtext.trim().length === 0) {
-        //throw erro
+    if (enteredText.trim().length === 0) {
+        //throw error
         return
     }
 
-    
+    props.onAddTodo(enteredText);
 }
 
   return (
