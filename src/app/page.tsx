@@ -16,10 +16,17 @@ export default function Home() {
     });
   };
 
+  const removeTodoHandler = (todoId: string) => {
+    setTodos((prevTodos) => {
+      console.log(todoId)
+     return prevTodos.filter(todo => todo.id !== todoId)
+    });
+  }
+
   return (
     <main className={styles.main}>
       <NewTodo onAddTodo={addTodoHandler} />
-      <Todos items={todos} />
+      <Todos items={todos} onRemoveTodo={removeTodoHandler}/>
     </main>
   );
 }
